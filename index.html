@@ -1,25 +1,32 @@
 <html>
   <head>
     <title>Animated sprite</title>
-    <script src="app.js"></script>
+
     <style media="screen">
       body{
-        background: #2a2929
+        background: #2a2929;
       }
       .sprite {
         margin: 50 auto;
         width: 360px;
         height: 450px;
-        background: url('asset-walking-sprite.png');
+        /*background: url('asset-walking-sprite.png');*/
       }
-
-
     </style>
   </head>
   <body>
     <div class="cloud"></div>
-    <div id="sprite" class="sprite"></div>
+    <div id="sprite" class="sprite lazy" data-src="asset-walking-sprite.png"></div>
+
+
+
+    <script src="jquery.js"></script>
+    <script src="app.js"></script>
      <script charset="utf-8">
+      jQuery(document).ready(function() {
+        jQuery("div.lazy").lazy();
+      });
+
       var element = document.querySelector('#sprite');
       var sprite = new Motio(element, {
           fps: 30,
