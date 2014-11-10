@@ -4,7 +4,7 @@
     <script src="app.js"></script>
     <style media="screen">
       body{
-        background: #2D3037
+        background: #2a2929
       }
       .sprite {
         margin: 50 auto;
@@ -12,17 +12,20 @@
         height: 450px;
         background: url('asset-walking-sprite.png');
       }
+
+
     </style>
   </head>
   <body>
+    <div class="cloud"></div>
     <div id="sprite" class="sprite"></div>
-    <script charset="utf-8">
+     <script charset="utf-8">
       var element = document.querySelector('#sprite');
       var sprite = new Motio(element, {
           fps: 30,
           frames: 16
       });
       sprite.play();
-    </script>
+     </script>
   </body>
 </html>
