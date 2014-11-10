@@ -6,12 +6,16 @@
       body{
         background: #2a2929;
       }
+
       .sprite {
         margin: 50 auto;
         width: 360px;
         height: 450px;
-        background: url("asset-cloud.png") no-repeat center;
+        background: url("asset-cloud.png") no-repeat;
         /*background: url('asset-walking-sprite.png');*/
+      }
+      .loading{
+        background: red;
       }
     </style>
   </head>
@@ -25,7 +29,23 @@
     <script src="app.js"></script>
      <script charset="utf-8">
       jQuery(document).ready(function() {
-        jQuery("div.lazy").lazy();
+        jQuery(".lazy").lazy({
+            beforeLoad: function(element) {
+                element.removeClass("lazy");
+            },
+            onLoad: function(element) {
+                element.addClass("loading");
+            },
+            afterLoad: function(element) {
+                element.removeClass("loading").addClass("loaded");
+            },
+            onError: function(element) {
+                console.log("image loading error: " + element.attr("src"));
+            },
+            onFinishedAll: function() {
+                console.log("finished loading all images");
+            },
+        });
       });
 
       var element = document.querySelector('#sprite');
