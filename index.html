@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <title>Animated sprite</title>
+    <script src="app.js"></script>
+    <style media="screen">
+      .sprite {
+          width: 360px;
+          height: 450px;
+          background: url('asset-walking-sprite.png');
+      }
+    </style>
+  </head>
+  <body>
+    <div id="sprite" class="sprite"></div>
+    <script charset="utf-8">
+      var element = document.querySelector('#sprite');
+      var sprite = new Motio(element, {
+          fps: 30,
+          frames: 16
+      });
+      sprite.play();
+    </script>
+  </body>
+</html>
